@@ -23,7 +23,7 @@ class WeatherController {
 }
 
 extension WeatherController {
-    func refresh() {
+    func refresh() { // TODO: Move to service
         var urlRequest = URLRequest(url: URL(string: "https://app-code-test.kry.pet/locations")!)
         urlRequest.addValue(apiKey, forHTTPHeaderField: "X-Api-Key")
         URLSession(configuration: .default).dataTask(with: urlRequest) { (data, response, error) in
@@ -53,6 +53,6 @@ extension WeatherController {
     }
 }
 
-private struct LocationsResult: Decodable {
+struct LocationsResult: Decodable { // TODO: Move to separate file
     var locations: [WeatherLocation]
 }
