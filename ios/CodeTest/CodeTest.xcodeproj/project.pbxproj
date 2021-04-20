@@ -162,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				1C61DFD3226497D70042B6CE /* WeatherControllerTests.swift */,
+				021B9E95262F5F9C00E2CEF3 /* WeatherLocationTests.swift */,
 				1C61DFD5226497D70042B6CE /* Info.plist */,
 			);
 			path = CodeTestTests;
@@ -283,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C61DFD4226497D70042B6CE /* WeatherControllerTests.swift in Sources */,
+				021B9E96262F5F9C00E2CEF3 /* WeatherLocationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
