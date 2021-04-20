@@ -45,4 +45,19 @@ extension WeatherController {
             }
         }
     }
+    
+    func removeItem(at index: Int) {
+        let locationToRemove = entries.remove(at: index)
+        service.delete(identifier: locationToRemove.id) { result in
+            switch result {
+            case .failure:
+                self.view?.displayError()
+                
+            case .success:
+                break
+            }
+            
+            self.refresh()
+        }
+    }
 }

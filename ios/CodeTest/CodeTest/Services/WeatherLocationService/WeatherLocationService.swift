@@ -64,6 +64,12 @@ struct WeatherLocationService {
                     }
                 }
                 
+                // Map the model if there is one, otherwise return immediately.
+                if Model.self == EmptyResult.self, let result = EmptyResult() as? Model {
+                    completion(.success(result))
+                    return
+                }
+                
                 do {
                     let result = try decoder.decode(Model.self, from: data)
                     completion(.success(result))
