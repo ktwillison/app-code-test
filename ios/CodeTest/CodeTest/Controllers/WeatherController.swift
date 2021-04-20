@@ -20,37 +20,29 @@ class WeatherController {
         self.view = view
         refresh()
     }
+    
+    // MARK: Private
+    private let service = WeatherLocationService()
 }
 
 extension WeatherController {
-    func refresh() { // TODO: Move to service
-        // TODO: Filter out 'unknown' status types
-        
-        var urlRequest = URLRequest(url: URL(string: "https://app-code-test.kry.pet/locations")!)
-        urlRequest.addValue(apiKey, forHTTPHeaderField: "X-Api-Key")
-        URLSession(configuration: .default).dataTask(with: urlRequest) { (data, response, error) in
-            DispatchQueue.main.async {
-                guard let data = data else {
-                    self.view?.displayError()
-                    return
-                }
-                do {
-                    let result = try JSONDecoder().decode(LocationsResult.self, from: data)
-                    self.entries = result.locations
-                    self.view?.showEntries()
-                } catch {
-                    self.view?.displayError()
-                }
+    func refresh() {
+        service.fetchAll { result in
+            switch result {
+            case .failure:
+                self.view?.displayError()
+                
+            case .success(let result):
+                // Remove any entries with unknown status types from the results
+                self.entries = result.locations.compactMap({ weatherLocation in
+                    switch weatherLocation.status {
+                    case .unknown: return nil
+                    default: return weatherLocation
+                    }
+                })
+                
+                self.view?.showEntries()
             }
-        }.resume()
-    }
-
-    var apiKey: String {
-        guard let apiKey = UserDefaults.standard.string(forKey: "API_KEY") else {
-            let key = UUID().uuidString
-            UserDefaults.standard.set(key, forKey: "API_KEY")
-            return key
         }
-        return apiKey
     }
 }
