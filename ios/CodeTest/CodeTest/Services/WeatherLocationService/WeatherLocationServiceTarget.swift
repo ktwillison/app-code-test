@@ -16,8 +16,10 @@ enum WeatherLocationServiceTarget: TargetType {
     
     var path: String {
         switch self {
-        case .fetchAll, .add, .delete:
+        case .fetchAll, .add:
             return "/locations"
+        case .delete(let identifier):
+            return "/locations/\(identifier)"
         }
     }
     

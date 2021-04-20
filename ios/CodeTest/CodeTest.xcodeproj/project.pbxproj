@@ -12,8 +12,9 @@
 		021B9E80262F541700E2CEF3 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B9E7F262F541700E2CEF3 /* TargetType.swift */; };
 		021B9E84262F547700E2CEF3 /* WeatherLocationServiceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B9E83262F547700E2CEF3 /* WeatherLocationServiceTarget.swift */; };
 		021B9E8E262F5E1F00E2CEF3 /* LocationsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B9E8D262F5E1E00E2CEF3 /* LocationsResult.swift */; };
-		021B9E92262F5F8800E2CEF3 /* WeatherLocationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B9E91262F5F8800E2CEF3 /* WeatherLocationServiceTests.swift */; };
+		021B9E92262F5F8800E2CEF3 /* WeatherLocationServiceTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B9E91262F5F8800E2CEF3 /* WeatherLocationServiceTargetTests.swift */; };
 		021B9E96262F5F9C00E2CEF3 /* WeatherLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B9E95262F5F9C00E2CEF3 /* WeatherLocationTests.swift */; };
+		02FAE120262F6C5B0020B04B /* LocationsResultTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE11F262F6C5B0020B04B /* LocationsResultTest.swift */; };
 		1C61DFBF226497D60042B6CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61DFBE226497D60042B6CE /* AppDelegate.swift */; };
 		1C61DFC4226497D60042B6CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C61DFC2226497D60042B6CE /* Main.storyboard */; };
 		1C61DFC6226497D70042B6CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C61DFC5226497D70042B6CE /* Assets.xcassets */; };
@@ -41,6 +42,9 @@
 		021B9E7F262F541700E2CEF3 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		021B9E83262F547700E2CEF3 /* WeatherLocationServiceTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationServiceTarget.swift; sourceTree = "<group>"; };
 		021B9E8D262F5E1E00E2CEF3 /* LocationsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsResult.swift; sourceTree = "<group>"; };
+		021B9E91262F5F8800E2CEF3 /* WeatherLocationServiceTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationServiceTargetTests.swift; sourceTree = "<group>"; };
+		021B9E95262F5F9C00E2CEF3 /* WeatherLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationTests.swift; sourceTree = "<group>"; };
+		02FAE11F262F6C5B0020B04B /* LocationsResultTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsResultTest.swift; sourceTree = "<group>"; };
 		1C61DFBB226497D60042B6CE /* CodeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C61DFBE226497D60042B6CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C61DFC3226497D60042B6CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -173,7 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				1C61DFD3226497D70042B6CE /* WeatherControllerTests.swift */,
+				021B9E91262F5F8800E2CEF3 /* WeatherLocationServiceTargetTests.swift */,
 				021B9E95262F5F9C00E2CEF3 /* WeatherLocationTests.swift */,
+				02FAE11F262F6C5B0020B04B /* LocationsResultTest.swift */,
 				1C61DFD5226497D70042B6CE /* Info.plist */,
 			);
 			path = CodeTestTests;
@@ -298,7 +304,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C61DFD4226497D70042B6CE /* WeatherControllerTests.swift in Sources */,
+				021B9E92262F5F8800E2CEF3 /* WeatherLocationServiceTargetTests.swift in Sources */,
 				021B9E96262F5F9C00E2CEF3 /* WeatherLocationTests.swift in Sources */,
+				02FAE120262F6C5B0020B04B /* LocationsResultTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

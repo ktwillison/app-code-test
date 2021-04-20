@@ -20,7 +20,7 @@ protocol TargetType {
 
 extension TargetType {
     var defaultTimeoutInterval: TimeInterval {
-        return 5
+        return 10
     }
 
     var request: URLRequest? {
