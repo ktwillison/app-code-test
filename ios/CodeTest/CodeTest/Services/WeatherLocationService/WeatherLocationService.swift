@@ -12,13 +12,38 @@ struct WeatherLocationService {
     let decoder = JSONDecoder()
 
     func fetchAll(completion: @escaping (Result<LocationsResult, WeatherLocationServiceError>) -> Void) {
-        guard let request = WeatherLocationServiceTarget.fetchAll.request else {
+        makeRequest(of: .fetchAll, completion: completion)
+    }
+    
+    func delete(identifier: String, completion: @escaping (Result<EmptyResult, WeatherLocationServiceError>) -> Void) {
+        makeRequest(of: .delete(identifier: identifier), completion: completion)
+    }
+    
+    func add(_ location: WeatherLocation, completion: @escaping (Result<EmptyResult, WeatherLocationServiceError>) -> Void) {
+        makeRequest(of: .add(location), completion: completion)
+    }
+    
+    // MARK: Private
+    
+    // Call the completion with an appropriate error if the response is malformed,
+    // returns an error code, or cannot be mapped to the given model. Otherwise on success,
+    // call the completion with the correctly mapped model.
+    private func makeRequest<Model: Decodable>(
+        of targetType: WeatherLocationServiceTarget,
+        completion: @escaping (Result<Model, WeatherLocationServiceError>) -> Void) {
+        
+        guard let request = targetType.request else {
             completion(.failure(.requestError))
             return
         }
 
         let task = session.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
+                guard let data = data else {
+                    completion(.failure(.resultError))
+                    return
+                }
+                
                 guard error == nil else {
                     completion(.failure(.serviceError(error)))
                     return
@@ -38,15 +63,11 @@ struct WeatherLocationService {
                         return
                     }
                 }
-    
-                guard let data = data else {
-                    completion(.failure(.resultError))
-                    return
-                }
                 
                 do {
-                    let result = try decoder.decode(LocationsResult.self, from: data)
+                    let result = try decoder.decode(Model.self, from: data)
                     completion(.success(result))
+                    
                 } catch {
                     completion(.failure(.serviceError(error)))
                 }
@@ -61,4 +82,11 @@ enum WeatherLocationServiceError: Error {
     case requestError
     case resultError
     case serviceError(Error?)
+}
+
+// This is a bit of a hack so that we can use the same generic functions for the request logic;
+// there's probably a better way to handle this, but I didn't want to take _too_ deep of a
+// detour into generic-land 😇
+struct EmptyResult: Decodable {
+    // Intentionally left blank
 }
