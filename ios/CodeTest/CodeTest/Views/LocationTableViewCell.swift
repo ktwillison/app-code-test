@@ -35,12 +35,13 @@ private extension WeatherLocation.Status {
         case .lightening: return "🌩"
         case .snowCloud: return "🌨"
         case .rainy: return "🌧"
+        case .unknown: return ""
         }
     }
 
     var backgroundColor: UIColor {
         switch self {
-        case .cloudy, .rainy, .snowCloud: return .lightGray
+        case .cloudy, .rainy, .snowCloud, .unknown: return .lightGray
         case .tornado, .thunderCloudAndRain, .lightening: return UIColor(red: 255 / 255, green: 113 / 255, blue: 113 / 255, alpha: 1)
         case .sunny, .mostlySunny, .barelySunny, .partlySunnyRain: return UIColor(red: 114 / 255, green: 168 / 255, blue: 255 / 255, alpha: 1)
         }

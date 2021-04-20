@@ -16,9 +16,25 @@ struct WeatherLocation: Decodable {
         case lightening = "LIGHTENING"
         case snowCloud = "SNOW_CLOUD"
         case rainy = "RAINY"
+        case unknown
     }
     let id: String
     let name: String
     let status: Status
     let temperature: Int
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: RootCodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.status = (try? container.decode(Status.self, forKey: .status)) ?? .unknown
+        self.temperature = try container.decode(Int.self, forKey: .temperature)
+    }
+    
+    // MARK: Private
+    
+    // Coding keys
+    private enum RootCodingKeys: String, CodingKey {
+        case id, name, status, temperature
+    }
 }
