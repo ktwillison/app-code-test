@@ -24,10 +24,21 @@ struct WeatherLocationService {
                     return
                 }
                 
-                // TODO: Map error codes
-                
-                // TODO: Retry logic?
-                
+                if let httpResponse = response as? HTTPURLResponse {
+                    switch HTTP.Status.from(httpResponse.statusCode) {
+                    case .unknown, .success:
+                        break
+                        
+                    case .requestError:
+                        completion(.failure(.requestError))
+                        return
+                        
+                    case .serverError:
+                        completion(.failure(.serviceError(nil)))
+                        return
+                    }
+                }
+    
                 guard let data = data else {
                     completion(.failure(.resultError))
                     return
