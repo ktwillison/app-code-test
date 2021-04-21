@@ -10,7 +10,7 @@ import Foundation
 enum WeatherLocationServiceTarget: TargetType {
     case fetchAll
     case delete(identifier: String)
-    case add(WeatherLocation)
+    case add(locationName: String, temperature: Int, status: WeatherLocation.Status)
     
     var baseUrl: String { "https://app-code-test.kry.pet" }
     
@@ -48,14 +48,14 @@ enum WeatherLocationServiceTarget: TargetType {
         case .fetchAll:
             return [:]
             
-        case .add(let weatherLocation):
+        case .add(let locationName, let temperature, let status):
             return [
                 // Note: I omit the identifier here, as it seems like something that
                 // should be created on the backend, but I may be missing a good
                 // reason why we'd want to create it client-side 🤔
-                "name": weatherLocation.name,
-                "status": weatherLocation.status.rawValue,
-                "temperature": weatherLocation.temperature
+                "name": locationName,
+                "status": status.rawValue,
+                "temperature": temperature
             ]
             
         case .delete(let identifier):

@@ -89,9 +89,8 @@ class WeatherLocationServiceTests: XCTestCase {
             error: nil)
         
         let service = WeatherLocationService(with: mockSession)
-        let location = WeatherLocation(id: "id", name: "hello", status: .sunny, temperature: 20)
-        
-        service.add(location) { result in
+
+        service.add(locationName: "Hello", temperature: 20, status: .sunny) { result in
             switch result {
             case .failure: XCTFail()
             case .success: break

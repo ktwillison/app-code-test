@@ -20,8 +20,14 @@ struct WeatherLocationService {
         makeRequest(of: .delete(identifier: identifier), completion: completion)
     }
     
-    func add(_ location: WeatherLocation, completion: @escaping (Result<EmptyResult, WeatherLocationServiceError>) -> Void) {
-        makeRequest(of: .add(location), completion: completion)
+    func add(locationName: String, temperature: Int, status: WeatherLocation.Status,
+             completion: @escaping (Result<EmptyResult, WeatherLocationServiceError>) -> Void) {
+        makeRequest(
+            of: .add(
+                locationName: locationName,
+                temperature: temperature,
+                status: status),
+            completion: completion)
     }
     
     // MARK: Private

@@ -30,11 +30,10 @@ class WeatherLocationServiceTargetTests: XCTestCase {
     }
     
     func testAddRequest() throws {
-        let decoder = JSONDecoder()
-        let weatherLocation = try decoder.decode(
-            WeatherLocation.self,
-            from: WeatherLocation.Mocks.valid)
-        let target = WeatherLocationServiceTarget.add(weatherLocation)
+        let target = WeatherLocationServiceTarget.add(
+            locationName: "Honolulu",
+            temperature: 25,
+            status: .sunny)
         
         XCTAssertEqual(target.request?.url?.absoluteString, "https://app-code-test.kry.pet/locations")
         XCTAssertEqual(Array(target.request!.allHTTPHeaderFields!.keys), ["X-Api-Key"])
