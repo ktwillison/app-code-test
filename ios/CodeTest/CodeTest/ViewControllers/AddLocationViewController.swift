@@ -7,27 +7,20 @@
 
 import UIKit
 
-final class AddLocationViewController: UIViewController {
+final class AddLocationViewController: UIViewController, StoryboardInstantiatable, Coordinatable {
+    typealias ViewControllerType = AddLocationViewController
+    typealias ControllerType = AddLocationController
     
-    private var controller: AddLocationController!
+    var coordinator: MainCoordinator!
+    var controller: AddLocationController!
+    
     private let feedbackGenerator = UISelectionFeedbackGenerator()
     private var currentlySelectedStatus: WeatherLocation.Status?
     
     @IBOutlet weak var locationNameField: UITextField!
     @IBOutlet weak var temperatureField: UITextField!
     @IBOutlet weak var cloudCoverStackView: UIStackView!
-    
-    // TODO: Lift common setup methods into generic functions
-    static func create(controller: AddLocationController) -> AddLocationViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let storyboardIdentifier = "AddLocationViewController"
 
-        let viewController = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as! AddLocationViewController
-
-        viewController.controller = controller
-        return viewController
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         controller.bind(view: self)
@@ -76,7 +69,7 @@ extension AddLocationViewController: AddLocationView {
     }
     
     func dismissView() {
-        // TODO: Implement navigation handling
+        coordinator.addLocationViewShouldDismiss()
     }
 }
 

@@ -4,19 +4,12 @@
 
 import UIKit
 
-class WeatherViewController: UITableViewController {
+class WeatherViewController: UITableViewController, StoryboardInstantiatable, Coordinatable {
+    typealias ViewControllerType = WeatherViewController
+    typealias ControllerType = WeatherController
 
-    private var controller: WeatherController!
-
-    // TODO: Lift common setup methods into generic functions
-    static func create(controller: WeatherController) -> WeatherViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        let viewController = storyboard.instantiateInitialViewController() as! WeatherViewController
-
-        viewController.controller = controller
-        return viewController
-    }
+    var controller: WeatherController!
+    var coordinator: MainCoordinator!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +17,21 @@ class WeatherViewController: UITableViewController {
         setup()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        controller.refresh()
+    @objc func didSelectAddLocation() {
+        coordinator.weatherViewDidSelectAdd()
     }
 
     private func setup() {
         title = "Weather Code Test"
         tableView.tableFooterView = UIView()
         tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        
+        navigationItem.setRightBarButtonItems(
+            [UIBarButtonItem(
+                barButtonSystemItem: .add,
+                target: self,
+                action: #selector(didSelectAddLocation))],
+            animated: true)
     }
 }
 

@@ -98,7 +98,7 @@
         <!--Add Location View Controller-->
         <scene sceneID="8ao-2H-wGO">
             <objects>
-                <viewController id="ECR-O7-k2D" customClass="AddLocationViewController" customModule="CodeTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocationViewController" id="ECR-O7-k2D" customClass="AddLocationViewController" customModule="CodeTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3SP-Np-hmN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

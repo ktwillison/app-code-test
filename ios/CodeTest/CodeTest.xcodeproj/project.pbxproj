@@ -22,6 +22,8 @@
 		02FAE13A262FEFFE0020B04B /* AddLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE139262FEFFD0020B04B /* AddLocationController.swift */; };
 		02FAE13E262FF66B0020B04B /* CloudCoverButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02FAE13D262FF66B0020B04B /* CloudCoverButton.xib */; };
 		02FAE142262FFA920020B04B /* CloudCoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE141262FFA910020B04B /* CloudCoverButton.swift */; };
+		02FAE14A263000830020B04B /* StoryboardInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE149263000830020B04B /* StoryboardInstantiatable.swift */; };
+		02FAE15C263004990020B04B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE15B263004990020B04B /* Coordinator.swift */; };
 		1C61DFBF226497D60042B6CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61DFBE226497D60042B6CE /* AppDelegate.swift */; };
 		1C61DFC4226497D60042B6CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C61DFC2226497D60042B6CE /* Main.storyboard */; };
 		1C61DFC6226497D70042B6CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C61DFC5226497D70042B6CE /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		02FAE139262FEFFD0020B04B /* AddLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationController.swift; sourceTree = "<group>"; };
 		02FAE13D262FF66B0020B04B /* CloudCoverButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CloudCoverButton.xib; sourceTree = "<group>"; };
 		02FAE141262FFA910020B04B /* CloudCoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudCoverButton.swift; sourceTree = "<group>"; };
+		02FAE149263000830020B04B /* StoryboardInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiatable.swift; sourceTree = "<group>"; };
+		02FAE15B263004990020B04B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1C61DFBB226497D60042B6CE /* CodeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C61DFBE226497D60042B6CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C61DFC3226497D60042B6CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 			children = (
 				1C61DFC5226497D70042B6CE /* Assets.xcassets */,
 				1C61DFBE226497D60042B6CE /* AppDelegate.swift */,
+				02FAE15B263004990020B04B /* Coordinator.swift */,
+				02FAE149263000830020B04B /* StoryboardInstantiatable.swift */,
 				1C61DFCA226497D70042B6CE /* Info.plist */,
 			);
 			path = ApplicationSupport;
@@ -198,9 +204,9 @@
 				1C61DFD3226497D70042B6CE /* WeatherControllerTests.swift */,
 				02FAE133262FE3B90020B04B /* WeatherLocationServiceTests.swift */,
 				021B9E91262F5F8800E2CEF3 /* WeatherLocationServiceTargetTests.swift */,
-				02FAE12B262FE2560020B04B /* URLSession+Mock.swift */,
 				021B9E95262F5F9C00E2CEF3 /* WeatherLocationTests.swift */,
 				02FAE11F262F6C5B0020B04B /* LocationsResultTest.swift */,
+				02FAE12B262FE2560020B04B /* URLSession+Mock.swift */,
 				1C61DFD5226497D70042B6CE /* Info.plist */,
 			);
 			path = CodeTestTests;
@@ -308,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02FAE15C263004990020B04B /* Coordinator.swift in Sources */,
 				1C61E0152265C4630042B6CE /* WeatherViewController.swift in Sources */,
 				1C61DFE12264A20B0042B6CE /* LocationTableViewCell.swift in Sources */,
 				02FAE128262FDEDF0020B04B /* URLSession.swift in Sources */,
@@ -317,6 +324,7 @@
 				021B9E80262F541700E2CEF3 /* TargetType.swift in Sources */,
 				02FAE124262F832B0020B04B /* AddLocationViewController.swift in Sources */,
 				021B9E8E262F5E1F00E2CEF3 /* LocationsResult.swift in Sources */,
+				02FAE14A263000830020B04B /* StoryboardInstantiatable.swift in Sources */,
 				1C61DFBF226497D60042B6CE /* AppDelegate.swift in Sources */,
 				021B9E84262F547700E2CEF3 /* WeatherLocationServiceTarget.swift in Sources */,
 				1C61E0172265C4DD0042B6CE /* WeatherLocation.swift in Sources */,
