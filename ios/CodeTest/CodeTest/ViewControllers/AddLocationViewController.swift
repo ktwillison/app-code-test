@@ -73,12 +73,25 @@ extension AddLocationViewController: AddLocationView {
     }
 }
 
-extension AddLocationViewController {
-    private func setup() {
-        populateCloudCoverSelection()
+extension AddLocationViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
     }
     
-    private func populateCloudCoverSelection() {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+}
+
+private extension AddLocationViewController {
+    func setup() {
+        populateCloudCoverSelection()
+        
+        locationNameField.delegate = self
+        temperatureField.delegate = self
+    }
+    
+    func populateCloudCoverSelection() {
         // Remove all existing subviews
         cloudCoverStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
@@ -110,7 +123,7 @@ extension AddLocationViewController {
         }
     }
     
-    private func createEmojiStackView() -> UIStackView {
+    func createEmojiStackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 10
