@@ -15,7 +15,7 @@ protocol Coordinatable {
     var coordinator: MainCoordinator! { get }
 }
 
-class MainCoordinator: Coordinator {
+class MainCoordinator: NSObject, Coordinator {
     enum State {
         case viewLocations(UINavigationController, WeatherViewController)
         case addLocations(UINavigationController, AddLocationViewController)
@@ -51,6 +51,8 @@ extension MainCoordinator: WeatherViewCoordinator {
         let viewController = AddLocationViewController.create(with: controller, coordinator: self, from: .main)
 
         navigationController.present(viewController, animated: true, completion: nil)
+        viewController.presentationController?.delegate = self
+
         state = .addLocations(navigationController, viewController)
     }
 }
@@ -61,12 +63,22 @@ protocol AddLocationViewCoordinator: class {
 
 extension MainCoordinator: AddLocationViewCoordinator {
     func addLocationViewShouldDismiss() {
-        guard case let .addLocations(presentedViewController) = state,
-              let presentingViewController = presentedViewController.presentingViewController as? WeatherViewController else { return }
-        
-        presentingViewController.controller.refresh()
+        guard case let .addLocations(_, presentedViewController) = state else { return }
         presentedViewController.dismiss(animated: true, completion: nil)
+        updateStateForDismissedAddLocationView()
+    }
+    
+    private func updateStateForDismissedAddLocationView() {
+        guard case let .addLocations(navigationController, _) = state,
+              let rootViewController = navigationController.children[0] as? WeatherViewController else { return }
         
+        rootViewController.controller.refresh()
         state = .viewLocations(navigationController, rootViewController)
+    }
+}
+
+extension MainCoordinator: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        updateStateForDismissedAddLocationView()
     }
 }
