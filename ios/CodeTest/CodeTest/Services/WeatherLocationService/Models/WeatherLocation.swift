@@ -31,6 +31,13 @@ struct WeatherLocation: Decodable {
         self.temperature = try container.decode(Int.self, forKey: .temperature)
     }
     
+    internal init(id: String, name: String, status: WeatherLocation.Status, temperature: Int) {
+        self.id = id
+        self.name = name
+        self.status = status
+        self.temperature = temperature
+    }
+    
     // MARK: Private
     
     // Coding keys

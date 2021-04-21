@@ -8,8 +8,9 @@
 import Foundation
 
 struct WeatherLocationService {
-    let session = URLSession(configuration: .default)
-    let decoder = JSONDecoder()
+    init(with session: URLSessionProtocol = URLSession(configuration: .default)) {
+        self.session = session
+    }
 
     func fetchAll(completion: @escaping (Result<LocationsResult, WeatherLocationServiceError>) -> Void) {
         makeRequest(of: .fetchAll, completion: completion)
@@ -24,6 +25,9 @@ struct WeatherLocationService {
     }
     
     // MARK: Private
+    
+    private let session: URLSessionProtocol
+    private let decoder = JSONDecoder()
     
     // Call the completion with an appropriate error if the response is malformed,
     // returns an error code, or cannot be mapped to the given model. Otherwise on success,
