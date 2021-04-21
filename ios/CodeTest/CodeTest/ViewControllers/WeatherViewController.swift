@@ -8,6 +8,7 @@ class WeatherViewController: UITableViewController {
 
     private var controller: WeatherController!
 
+    // TODO: Lift common setup methods into generic functions
     static func create(controller: WeatherController) -> WeatherViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
@@ -21,6 +22,11 @@ class WeatherViewController: UITableViewController {
         super.viewDidLoad()
         controller.bind(view: self)
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        controller.refresh()
     }
 
     private func setup() {
