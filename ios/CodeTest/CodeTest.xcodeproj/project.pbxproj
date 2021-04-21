@@ -20,6 +20,8 @@
 		02FAE12C262FE2560020B04B /* URLSession+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE12B262FE2560020B04B /* URLSession+Mock.swift */; };
 		02FAE134262FE3B90020B04B /* WeatherLocationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE133262FE3B90020B04B /* WeatherLocationServiceTests.swift */; };
 		02FAE13A262FEFFE0020B04B /* AddLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE139262FEFFD0020B04B /* AddLocationController.swift */; };
+		02FAE13E262FF66B0020B04B /* CloudCoverButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02FAE13D262FF66B0020B04B /* CloudCoverButton.xib */; };
+		02FAE142262FFA920020B04B /* CloudCoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAE141262FFA910020B04B /* CloudCoverButton.swift */; };
 		1C61DFBF226497D60042B6CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C61DFBE226497D60042B6CE /* AppDelegate.swift */; };
 		1C61DFC4226497D60042B6CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C61DFC2226497D60042B6CE /* Main.storyboard */; };
 		1C61DFC6226497D70042B6CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C61DFC5226497D70042B6CE /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		02FAE12B262FE2560020B04B /* URLSession+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Mock.swift"; sourceTree = "<group>"; };
 		02FAE133262FE3B90020B04B /* WeatherLocationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationServiceTests.swift; sourceTree = "<group>"; };
 		02FAE139262FEFFD0020B04B /* AddLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationController.swift; sourceTree = "<group>"; };
+		02FAE13D262FF66B0020B04B /* CloudCoverButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CloudCoverButton.xib; sourceTree = "<group>"; };
+		02FAE141262FFA910020B04B /* CloudCoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudCoverButton.swift; sourceTree = "<group>"; };
 		1C61DFBB226497D60042B6CE /* CodeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C61DFBE226497D60042B6CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C61DFC3226497D60042B6CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 			children = (
 				1C61DFE02264A20B0042B6CE /* LocationTableViewCell.swift */,
 				1C61DFC2226497D60042B6CE /* Main.storyboard */,
+				02FAE13D262FF66B0020B04B /* CloudCoverButton.xib */,
+				02FAE141262FFA910020B04B /* CloudCoverButton.swift */,
 				1C61DFC7226497D70042B6CE /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -282,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C61DFC9226497D70042B6CE /* LaunchScreen.storyboard in Resources */,
+				02FAE13E262FF66B0020B04B /* CloudCoverButton.xib in Resources */,
 				1C61DFC6226497D70042B6CE /* Assets.xcassets in Resources */,
 				1C61DFC4226497D60042B6CE /* Main.storyboard in Resources */,
 			);
@@ -304,6 +311,7 @@
 				1C61E0152265C4630042B6CE /* WeatherViewController.swift in Sources */,
 				1C61DFE12264A20B0042B6CE /* LocationTableViewCell.swift in Sources */,
 				02FAE128262FDEDF0020B04B /* URLSession.swift in Sources */,
+				02FAE142262FFA920020B04B /* CloudCoverButton.swift in Sources */,
 				021B9E7C262F538500E2CEF3 /* HTTP.swift in Sources */,
 				1C61DFDF2264990E0042B6CE /* WeatherController.swift in Sources */,
 				021B9E80262F541700E2CEF3 /* TargetType.swift in Sources */,

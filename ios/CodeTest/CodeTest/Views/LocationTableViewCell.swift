@@ -22,7 +22,7 @@ class LocationTableViewCell: UITableViewCell {
     }
 }
 
-private extension WeatherLocation.Status {
+extension WeatherLocation.Status {
     var emoji: String {
         switch self {
         case .cloudy: return "☁️"

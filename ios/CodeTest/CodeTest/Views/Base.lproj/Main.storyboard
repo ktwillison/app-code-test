@@ -225,7 +225,7 @@
                                     <constraint firstAttribute="height" constant="30" id="ynZ-sw-5Pb"/>
                                 </constraints>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="x">
+                                <state key="normal" title="Close">
                                     <imageReference key="image" image="xmark.circle.fill" catalog="system" symbolScale="large"/>
                                 </state>
                                 <connections>
